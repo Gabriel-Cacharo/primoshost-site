@@ -1,95 +1,104 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import { Header } from '@/components/Header/Header';
+import './responsive.module.css';
+import styles from './page.module.css';
+import Image from 'next/image';
+import { SectionTitle } from '@/components/SectionTitle/SectionTitle';
+import { BiRightArrowAlt } from 'react-icons/bi';
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
+    <div className="page">
+      <Header />
+
+      <section className={styles.welcomeSection}>
         <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+          <h1>Seja Bem Vindo(a) à</h1>
+          <span>PrimosHost</span>
+          <p>Construindo pontes digitais para o seu sucesso na web</p>
         </div>
-      </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+        <div className={styles.renderRight}>
+          <Image src="/images/renderPersonWithCrate.png" alt="Minecraft figure with chest" fill />
+        </div>
+      </section>
+
+      <section className={styles.ourBenefitsSection}>
+        <SectionTitle
+          title="Nossos Benefícios"
+          subtitle="Veja um poucos dos benefícios que você leva comprando conosco"
         />
-      </div>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+        <div className={styles.ourBenefitsSectionContent}>
+          <div className={styles.benefits}>
+            <button>
+              <Image src="/images/render.svg" alt="Render" height={80} width={45} /> Suporte
+            </button>
+            <button>
+              <Image src="/images/render.svg" alt="Render" height={80} width={45} /> Suporte
+            </button>
+            <button>
+              <Image src="/images/render.svg" alt="Render" height={80} width={45} /> Suporte
+            </button>
+            <button>
+              <Image src="/images/render.svg" alt="Render" height={80} width={45} /> Suporte
+            </button>
+            <button>
+              <Image src="/images/render.svg" alt="Render" height={80} width={45} /> Suporte
+            </button>
+            <button className={styles.benefitSelected}>
+              <Image src="/images/render.svg" alt="Render" height={80} width={45} /> Suporte
+            </button>
+          </div>
+          <div className={styles.benefitDetails}>
+            <Image src="/images/render.svg" alt="Render" height={174} width={92} />
+            <h4>Suporte 24/7</h4>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id varius libero. Aliquam consequat sagittis
+              quam, quis efficitur risus convallis ac. Nullam eu efficitur mauris, vel rhoncus erat
+            </p>
+          </div>
+        </div>
+      </section>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+      <section className={styles.putYourProjectOnline}>
+        <Image src="/images/serverRender.svg" alt="Server Image" width={255} height={178} />
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
+        <div>
+          <h4>Deixe o seu projeto online agora mesmo</h4>
           <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut magna in sem facilisis accumsan id quis
+            lacus. Suspendisse vel nunc mauris. In hac habitasse platea dictumst. Sed feugiat tellus sapien, consectetur
+            facilisis sem facilisis et. Sed ac placerat massa. Aenean facilisis mi eu magna scelerisque, vel varius
+            nulla sagittis.{' '}
           </p>
-        </a>
-      </div>
-    </main>
-  )
+        </div>
+      </section>
+
+      <section className={styles.mainProducts}>
+        <SectionTitle title="Principais Produtos" subtitle="Conheça um pouco dos nossos principais produtos" />
+
+        <div className={styles.mainProductsContent}>
+          <div className={styles.mainProduct}>
+            <h5>MINECRAFT</h5>
+
+            <div className={styles.mainProductInformations}>
+              <Image src="/images/render.svg" alt="Render" height={120} width={70} />
+              <p>Hospedagem para o seu servidor de Minecraft ficar online 100% do tempo.</p>
+
+              <div>
+                <p>A partir de </p>
+                <p>
+                  <span>R$</span> 28,99
+                </p>
+              </div>
+
+              <button>
+                Conhecer <BiRightArrowAlt />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 }
