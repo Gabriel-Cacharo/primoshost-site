@@ -3,7 +3,7 @@ import './responsive.module.css';
 import styles from './page.module.css';
 import Image from 'next/image';
 import { SectionTitle } from '@/components/SectionTitle/SectionTitle';
-import { BiRightArrowAlt } from 'react-icons/bi';
+import { MainProduct } from '@/components/MainProduct/MainProduct';
 
 export default function Home() {
   return (
@@ -78,25 +78,13 @@ export default function Home() {
         <SectionTitle title="Principais Produtos" subtitle="Conheça um pouco dos nossos principais produtos" />
 
         <div className={styles.mainProductsContent}>
-          <div className={styles.mainProduct}>
-            <h5>MINECRAFT</h5>
-
-            <div className={styles.mainProductInformations}>
-              <Image src="/images/render.svg" alt="Render" height={120} width={70} />
-              <p>Hospedagem para o seu servidor de Minecraft ficar online 100% do tempo.</p>
-
-              <div>
-                <p>A partir de </p>
-                <p>
-                  <span>R$</span> 28,99
-                </p>
-              </div>
-
-              <button>
-                Conhecer <BiRightArrowAlt />
-              </button>
-            </div>
-          </div>
+          <MainProduct
+            title="Minecraft"
+            description="Hospedagem para o seu servidor de Minecraft ficar online 100% do tempo."
+            price="28,99"
+            link="/minecraft"
+            imageUrl="/images/render.svg"
+          />
         </div>
       </section>
     </div>
