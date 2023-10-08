@@ -13,7 +13,7 @@ interface IMainProduct {
 
 export function MainProduct({ description, link, price, title, imageUrl }: IMainProduct) {
   return (
-    <div className={styles.mainProduct}>
+    <div className={styles.mainProduct} data-aos="fade-in">
       <h5>{title}</h5>
 
       <div className={styles.mainProductInformations}>

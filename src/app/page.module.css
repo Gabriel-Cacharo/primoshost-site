@@ -422,3 +422,252 @@
 
   margin: 50px 0px;
 }
+
+/* Frequenly Asked Questions Section */
+.frequentlyAskedQuestionsSection {
+  height: 600px;
+  background-color: var(--purple-primary);
+
+  background-image: url('/images/waveAsksSection.svg');
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.frequentlyAskedQuestionImageLeft {
+  height: 500px;
+  width: 300px;
+
+  position: relative;
+}
+
+.frequentlyAskedQuestionsContent {
+  width: 35%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.frequentlyAskedQuestionsContent h4 {
+  font-size: 2.37rem;
+  color: #fff;
+  text-transform: uppercase;
+
+  border-top: 2px solid var(--orange-primary);
+
+  margin-bottom: 40px;
+}
+
+.frequentlyAskedQuestionsContent > div {
+  width: 100%;
+}
+
+.frequentlyAskedQuestionsContent > div h6 {
+  background-color: #eee;
+  border-radius: 6px;
+  height: 45px;
+  width: 100%;
+  font-size: 1rem;
+
+  padding: 0px 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  transition: all 200ms ease-in-out;
+}
+
+.frequentlyAskedQuestionsContent > div h6:hover {
+  border: 1px solid var(--orange-primary);
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+.frequentlyAskedQuestionsContent > div p {
+  background-color: #eee;
+  border-radius: 8px;
+  margin-top: 5px;
+  padding: 8px;
+
+  transition: all 200ms ease-in-out;
+}
+
+@media (max-width: 1500px) {
+  .frequentlyAskedQuestionsContent {
+    width: 50%;
+  }
+}
+
+@media (max-width: 950px) {
+  .frequentlyAskedQuestionImageLeft {
+    height: 400px;
+    width: 200px;
+  }
+
+  .frequentlyAskedQuestionsContent {
+    width: 60%;
+  }
+}
+
+@media (max-width: 780px) {
+  .frequentlyAskedQuestionImageLeft {
+    height: 335px;
+    width: 170px;
+  }
+
+  .frequentlyAskedQuestionsSection {
+    flex-direction: column;
+    gap: 15px;
+
+    height: 750px;
+    padding: 20px;
+  }
+
+  .frequentlyAskedQuestionsContent h4 {
+    text-align: center;
+    padding-top: 5px;
+  }
+}
+
+@media (max-width: 710px) {
+  .frequentlyAskedQuestionsContent {
+    width: 90%;
+  }
+}
+
+@media (max-width: 500px) {
+  .frequentlyAskedQuestionsContent {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.firstFooterContent {
+  border-top: 2px solid var(--orange-primary);
+  border-radius: 30px;
+  margin-top: 50px;
+
+  height: 200px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.firstFooterContent > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  height: 100px;
+}
+
+.firstFooterContent > div h6 {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.firstFooterContent > div ul {
+  list-style: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  margin-top: 10px;
+}
+
+.firstFooterContent > div ul li {
+  transition: all 200ms ease-in-out;
+}
+
+.firstFooterContent > div ul li:hover {
+  color: var(--orange-secondary);
+  cursor: pointer;
+}
+
+.contactDiv ul {
+  display: flex;
+  flex-direction: row !important;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.contactDiv ul li {
+  background-color: var(--orange-primary);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px;
+  border-radius: 50%;
+
+  transition: all 200ms ease-in-out;
+}
+
+.contactDiv ul li:hover {
+  background-color: var(--orange-secondary);
+}
+
+.contactDiv > p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  margin-top: 10px;
+}
+
+.secondFooterContent {
+  background-color: var(--purple-primary);
+  color: #eee;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  text-align: center;
+
+  padding: 15px 25px;
+  font-weight: 300;
+}
+
+@media (max-width: 550px) {
+  .secondFooterContent {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 850px) {
+  .firstFooterContent {
+    flex-direction: column;
+
+    height: 600px;
+
+    justify-content: center;
+    gap: 25px;
+  }
+
+  .firstFooterContent > div {
+    height: auto;
+  }
+}
