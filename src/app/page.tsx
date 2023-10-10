@@ -1,17 +1,20 @@
 'use client';
 
-import { Header } from '@/components/Header/Header';
-import './responsive.module.css';
-import styles from './page.module.css';
 import Image from 'next/image';
+import { useState } from 'react';
+
+import { FiArrowDown } from 'react-icons/fi';
+
 import { SectionTitle } from '@/components/SectionTitle/SectionTitle';
 import { MainProduct } from '@/components/MainProduct/MainProduct';
-import { FiArrowDown } from 'react-icons/fi';
-import { useState } from 'react';
-import { RiTwitterXFill } from 'react-icons/ri';
-import { AiOutlineInstagram, AiOutlineMail } from 'react-icons/ai';
-import { CiFacebook } from 'react-icons/ci';
-import { BiLogoDiscordAlt } from 'react-icons/bi';
+import { Header } from '@/components/Header/Header';
+import { Footer } from '@/components/Footer/Footer';
+
+import RenderPersonWithCrate from '../../public/images/renderPersonWithCrate.png';
+import Render from '../../public/images/render.svg';
+import ServerRender from '../../public/images/serverRender.svg';
+
+import styles from './page.module.css';
 
 export default function Home() {
   const [openFrequentlyAskedQuestion, setOpenFrequentlyAskedQuestion] = useState<number | null>(null);
@@ -28,7 +31,7 @@ export default function Home() {
         </div>
 
         <div className={styles.renderRight} data-aos="zoom-in-left">
-          <Image src="/images/renderPersonWithCrate.png" alt="Minecraft figure with chest" fill />
+          <Image src={RenderPersonWithCrate} alt="Minecraft figure with chest" fill />
         </div>
       </section>
 
@@ -41,26 +44,26 @@ export default function Home() {
         <div className={styles.ourBenefitsSectionContent}>
           <div className={styles.benefits}>
             <button data-aos="flip-left">
-              <Image src="/images/render.svg" alt="Render" height={80} width={45} /> Suporte
+              <Image src={Render} alt="Render" height={80} width={45} /> Suporte
             </button>
             <button data-aos="flip-left">
-              <Image src="/images/render.svg" alt="Render" height={80} width={45} /> Suporte
+              <Image src={Render} alt="Render" height={80} width={45} /> Suporte
             </button>
             <button data-aos="flip-left">
-              <Image src="/images/render.svg" alt="Render" height={80} width={45} /> Suporte
+              <Image src={Render} alt="Render" height={80} width={45} /> Suporte
             </button>
             <button data-aos="flip-left">
-              <Image src="/images/render.svg" alt="Render" height={80} width={45} /> Suporte
+              <Image src={Render} alt="Render" height={80} width={45} /> Suporte
             </button>
             <button data-aos="flip-left">
-              <Image src="/images/render.svg" alt="Render" height={80} width={45} /> Suporte
+              <Image src={Render} alt="Render" height={80} width={45} /> Suporte
             </button>
             <button className={styles.benefitSelected} data-aos="flip-left">
-              <Image src="/images/render.svg" alt="Render" height={80} width={45} /> Suporte
+              <Image src={Render} alt="Render" height={80} width={45} /> Suporte
             </button>
           </div>
           <div className={styles.benefitDetails} data-aos="flip-right">
-            <Image src="/images/render.svg" alt="Render" height={174} width={92} />
+            <Image src={Render} alt="Render" height={174} width={92} />
             <h4>Suporte 24/7</h4>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id varius libero. Aliquam consequat sagittis
@@ -71,7 +74,7 @@ export default function Home() {
       </section>
 
       <section className={styles.putYourProjectOnline}>
-        <Image src="/images/serverRender.svg" alt="Server Image" width={255} height={178} />
+        <Image src={ServerRender} alt="Server Image" width={255} height={178} />
 
         <div data-aos="fade-down">
           <h4>Deixe o seu projeto online agora mesmo</h4>
@@ -100,7 +103,7 @@ export default function Home() {
 
       <section className={styles.frequentlyAskedQuestionsSection}>
         <div className={styles.frequentlyAskedQuestionImageLeft} data-aos="zoom-in-right">
-          <Image src="/images/render.svg" alt="Render" fill />
+          <Image src={Render} alt="Render" fill />
         </div>
 
         <div className={styles.frequentlyAskedQuestionsContent}>
@@ -162,53 +165,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className={styles.footer}>
-        <div className={styles.firstFooterContent}>
-          <Image src="/images/logoWithSloganVertical.png" height={169} width={175} alt="PrimosHost Logo" />
-
-          <div>
-            <h6>Nossos Serviços</h6>
-            <ul>
-              <li>Minecraft</li>
-              <li>VPS</li>
-            </ul>
-          </div>
-
-          <div>
-            <h6>Empresa</h6>
-            <ul>
-              <li>Termos de Serviço</li>
-              <li>Status</li>
-              <li>Base de Conhecimento</li>
-            </ul>
-          </div>
-
-          <div className={styles.contactDiv}>
-            <h6>Contato</h6>
-            <ul className={styles.contactDivUl}>
-              <li>
-                <RiTwitterXFill color="fff" />
-              </li>
-              <li>
-                <AiOutlineInstagram color="fff" />
-              </li>
-              <li>
-                <CiFacebook color="fff" />
-              </li>
-              <li>
-                <BiLogoDiscordAlt color="fff" />
-              </li>
-            </ul>
-            <p>
-              <AiOutlineMail color="f78f1e" /> contato@primoshost.com.br
-            </p>
-          </div>
-        </div>
-        <div className={styles.secondFooterContent}>
-          <p>Todos os direitos reservados PrimosHost © 2023</p>
-          <p>Feito com 🤍 por PrimosHost</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
