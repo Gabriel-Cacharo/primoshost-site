@@ -1,4 +1,5 @@
 import Image from 'next/image';
+
 import { BiRightArrowAlt } from 'react-icons/bi';
 
 import styles from './styles.module.css';
