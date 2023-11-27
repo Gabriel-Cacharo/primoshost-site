@@ -401,7 +401,7 @@
   color: var(--orange-primary);
 }
 
-.productContainer button {
+.productContainer a {
   width: 90%;
   display: flex;
   align-items: center;
@@ -421,14 +421,14 @@
   transition: all 200ms ease-in-out;
 }
 
-.productContainer button:hover {
+.productContainer a:hover {
   transform: translateY(-0.2rem);
   cursor: pointer;
   background-color: var(--purple-primary);
   color: #fff;
 }
 
-.productContainer button:hover svg {
+.productContainer a:hover svg {
   fill: #fff;
   filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3)) drop-shadow(0 0 4px rgba(255, 255, 255, 0.3))
     drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
@@ -536,8 +536,9 @@
 .pterodactylImageContainer {
   position: relative;
 
-  width: 50%;
+  width: 60%;
   height: 100%;
+  object-fill: contain;
 }
 
 .pterodactylImageContainer img {

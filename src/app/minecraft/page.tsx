@@ -3,8 +3,10 @@
 import { useState } from 'react';
 import Image from 'next/image';
 
-import { BiRightArrowAlt, BiTimer } from 'react-icons/bi';
+import { BiRightArrowAlt, BiSupport } from 'react-icons/bi';
 import { BsCartCheck } from 'react-icons/bs';
+import { PiPlugsConnectedBold } from 'react-icons/pi';
+import { AiOutlineWifi } from 'react-icons/ai';
 
 import { Header } from '@/components/Header/Header';
 import { Footer } from '@/components/Footer/Footer';
@@ -16,9 +18,10 @@ import Ferro from '../../../public/images/minecraftProducts/ferro.png';
 import Ouro from '../../../public/images/minecraftProducts/ouro.png';
 import Diamante from '../../../public/images/minecraftProducts/diamante.png';
 import Esmeralda from '../../../public/images/minecraftProducts/esmeralda.png';
-import PteroImage from '../../../public/images/pterodactylImage.jpg';
+import PteroImage from '../../../public/images/pterodactylImage.png';
 
 import styles from './styles.module.css';
+import { minecraftBrazilProducts } from '../products';
 
 export default function Minecraft() {
   const [timeSelected, setTimeSelected] = useState<number>(1);
@@ -68,7 +71,7 @@ export default function Minecraft() {
           >
             Trimestral
             <p>
-              Garanta <span>10%</span> de desconto
+              Garanta <span>4%</span> de desconto
             </p>
           </button>
           <button
@@ -77,235 +80,89 @@ export default function Minecraft() {
           >
             Anual
             <p>
-              Garanta <span>20%</span> de desconto
+              Garanta <span>9%</span> de desconto
             </p>
           </button>
         </div>
       </div>
 
       <section className={styles.productsContainer}>
-        <div className={styles.productContainer} data-aos="flip-right">
-          <Image src={Pedra} alt="Pedra" width={260} height={140} />
-          <h5>Pedra</h5>
+        {minecraftBrazilProducts.map((product, index) => (
+          <div className={styles.productContainer} data-aos="flip-right" key={index}>
+            <Image
+              src={
+                product.name === 'Pedra'
+                  ? Pedra
+                  : product.name === 'Carvão'
+                  ? Carvao
+                  : product.name === 'Ferro'
+                  ? Ferro
+                  : product.name === 'Ouro'
+                  ? Ouro
+                  : product.name === 'Diamante'
+                  ? Diamante
+                  : Esmeralda
+              }
+              alt="Pedra"
+              width={260}
+              height={140}
+            />
+            <h5>{product.name}</h5>
 
-          <ul>
-            <li>
-              <BiRightArrowAlt color="6a3cbc" /> Opção 1
-            </li>
-            <li>
-              <BiRightArrowAlt color="6a3cbc" /> Opção 1
-            </li>
-            <li>
-              <BiRightArrowAlt color="6a3cbc" /> Opção 1
-            </li>
-            <li>
-              <BiRightArrowAlt color="6a3cbc" /> Opção 1
-            </li>
-          </ul>
+            <ul>
+              {product.description.map((description, index) => (
+                <li key={index}>
+                  <BiRightArrowAlt color="6a3cbc" /> {description.includes('RAM') ? <b>{description}</b> : description}
+                </li>
+              ))}
+            </ul>
 
-          <div className={styles.priceContainer}>
-            <p>R$45,00</p>
-            <h6>
-              <span>R$</span> 20,00
-            </h6>
+            <div className={styles.priceContainer}>
+              {timeSelected === 2 ? (
+                <p>R${(product.montlyPrice * 3).toFixed(2)}</p>
+              ) : timeSelected === 3 ? (
+                <p>R${(product.montlyPrice * 12).toFixed(2)}</p>
+              ) : null}
+              <h6>
+                <span>R$</span>{' '}
+                {timeSelected === 1
+                  ? product.montlyPrice
+                  : timeSelected === 2
+                  ? product.quarterly.toFixed(2)
+                  : product.yearly.toFixed(2)}
+              </h6>
+            </div>
+
+            <a href={product.link}>
+              Comprar <BsCartCheck color="8253d7" />
+            </a>
           </div>
-
-          <button>
-            Comprar <BsCartCheck color="8253d7" />
-          </button>
-        </div>
-
-        <div className={styles.productContainer} data-aos="flip-right">
-          <Image src={Carvao} alt="Pedra" width={260} height={140} />
-          <h5>Carvão</h5>
-
-          <ul>
-            <li>
-              <BiRightArrowAlt color="6a3cbc" /> 4GB de Ram
-            </li>
-            <li>
-              <BiRightArrowAlt color="6a3cbc" /> 50GB SSD
-            </li>
-            <li>
-              <BiRightArrowAlt color="6a3cbc" /> Slots ilimitados
-            </li>
-            <li>
-              <BiRightArrowAlt color="6a3cbc" /> Anti DDos
-            </li>
-          </ul>
-
-          <div className={styles.priceContainer}>
-            <p>R$45,00</p>
-            <h6>
-              <span>R$</span> 20,00
-            </h6>
-          </div>
-
-          <button>
-            Comprar <BsCartCheck color="8253d7" />
-          </button>
-        </div>
-
-        <div className={styles.productContainer} data-aos="flip-right">
-          <Image src={Ferro} alt="Pedra" width={260} height={140} />
-          <h5>Ferro</h5>
-
-          <ul>
-            <li>
-              <BiRightArrowAlt color="6a3cbc" /> Opção 1
-            </li>
-            <li>
-              <BiRightArrowAlt color="6a3cbc" /> Opção 1
-            </li>
-            <li>
-              <BiRightArrowAlt color="6a3cbc" /> Opção 1
-            </li>
-            <li>
-              <BiRightArrowAlt color="6a3cbc" /> Opção 1
-            </li>
-          </ul>
-
-          <div className={styles.priceContainer}>
-            <p>R$45,00</p>
-            <h6>
-              <span>R$</span> 20,00
-            </h6>
-          </div>
-
-          <button>
-            Comprar <BsCartCheck color="8253d7" />
-          </button>
-        </div>
-
-        <div className={styles.productContainer} data-aos="flip-right">
-          <Image src={Ouro} alt="Pedra" width={260} height={140} />
-          <h5>Ouro</h5>
-
-          <ul>
-            <li>
-              <BiRightArrowAlt color="6a3cbc" /> Opção 1
-            </li>
-            <li>
-              <BiRightArrowAlt color="6a3cbc" /> Opção 1
-            </li>
-            <li>
-              <BiRightArrowAlt color="6a3cbc" /> Opção 1
-            </li>
-            <li>
-              <BiRightArrowAlt color="6a3cbc" /> Opção 1
-            </li>
-          </ul>
-
-          <div className={styles.priceContainer}>
-            <p>R$45,00</p>
-            <h6>
-              <span>R$</span> 20,00
-            </h6>
-          </div>
-
-          <button>
-            Comprar <BsCartCheck color="8253d7" />
-          </button>
-        </div>
-
-        <div className={styles.productContainer} data-aos="flip-right">
-          <Image src={Diamante} alt="Pedra" width={260} height={140} />
-          <h5>Diamante</h5>
-
-          <ul>
-            <li>
-              <BiRightArrowAlt color="6a3cbc" /> Opção 1
-            </li>
-            <li>
-              <BiRightArrowAlt color="6a3cbc" /> Opção 1
-            </li>
-            <li>
-              <BiRightArrowAlt color="6a3cbc" /> Opção 1
-            </li>
-            <li>
-              <BiRightArrowAlt color="6a3cbc" /> Opção 1
-            </li>
-          </ul>
-
-          <div className={styles.priceContainer}>
-            <p>R$45,00</p>
-            <h6>
-              <span>R$</span> 20,00
-            </h6>
-          </div>
-
-          <button>
-            Comprar <BsCartCheck color="8253d7" />
-          </button>
-        </div>
-
-        <div className={styles.productContainer} data-aos="flip-right">
-          <Image src={Esmeralda} alt="Pedra" width={260} height={140} />
-          <h5>Esmeralda</h5>
-
-          <ul>
-            <li>
-              <BiRightArrowAlt color="6a3cbc" /> Opção 1
-            </li>
-            <li>
-              <BiRightArrowAlt color="6a3cbc" /> Opção 1
-            </li>
-            <li>
-              <BiRightArrowAlt color="6a3cbc" /> Opção 1
-            </li>
-            <li>
-              <BiRightArrowAlt color="6a3cbc" /> Opção 1
-            </li>
-          </ul>
-
-          <div className={styles.priceContainer}>
-            <p>R$45,00</p>
-            <h6>
-              <span>R$</span> 20,00
-            </h6>
-          </div>
-
-          <button>
-            Comprar <BsCartCheck color="8253d7" />
-          </button>
-        </div>
+        ))}
       </section>
 
       <div className={styles.benefitsContainer}>
         <div data-aos="fade-down">
-          <BiTimer color="f78f1e" size={40} />
+          <PiPlugsConnectedBold color="f78f1e" size={40} />
 
           <h5>Uptime 99.99%</h5>
+          <p>Garanta 99.99% de Uptime para seu servidor e deixe-o sempre online para seus jogadores.</p>
+        </div>
+
+        <div data-aos="fade-down">
+          <AiOutlineWifi color="f78f1e" size={40} />
+
+          <h5>Proteção AntiDDOs</h5>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut magna in sem facilisis accumsan id quis
-            lacus. Suspendisse vel nunc mauris. In hac habitasse platea dictumst. Sed feugiat tellus sapien, consectetur
-            facilisis sem facilisis et. Sed ac placerat massa. Aenean facilisis mi eu magna scelerisque, vel varius
-            nulla sagittis.{' '}
+            Possuímos uma grande infraestrutura de proteção, priorizando sempre o seu servidor online, sem quedas ou
+            lags!
           </p>
         </div>
 
         <div data-aos="fade-down">
-          <BiTimer color="f78f1e" size={40} />
+          <BiSupport color="f78f1e" size={40} />
 
-          <h5>Uptime 99.99%</h5>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut magna in sem facilisis accumsan id quis
-            lacus. Suspendisse vel nunc mauris. In hac habitasse platea dictumst. Sed feugiat tellus sapien, consectetur
-            facilisis sem facilisis et. Sed ac placerat massa. Aenean facilisis mi eu magna scelerisque, vel varius
-            nulla sagittis.{' '}
-          </p>
-        </div>
-
-        <div data-aos="fade-down">
-          <BiTimer color="f78f1e" size={40} />
-
-          <h5>Uptime 99.99%</h5>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut magna in sem facilisis accumsan id quis
-            lacus. Suspendisse vel nunc mauris. In hac habitasse platea dictumst. Sed feugiat tellus sapien, consectetur
-            facilisis sem facilisis et. Sed ac placerat massa. Aenean facilisis mi eu magna scelerisque, vel varius
-            nulla sagittis.{' '}
-          </p>
+          <h5>Suporte 24/7</h5>
+          <p>Conte sempre com nosso suporte especializado, auxiliando-o a qualquer momento que precisar.</p>
         </div>
       </div>
 
@@ -321,10 +178,8 @@ export default function Minecraft() {
         <div className={styles.pterodactylPanelTexts} data-aos="fade-left">
           <h5>PAINEL FÁCIL DE MANUSEAR</h5>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut magna in sem facilisis accumsan id quis
-            lacus. Suspendisse vel nunc mauris. In hac habitasse platea dictumst. Sed feugiat tellus sapien, consectetur
-            facilisis sem facilisis et. Sed ac placerat massa. Aenean facilisis mi eu magna scelerisque, vel varius
-            nulla sagittis.{' '}
+            Nosso painel pterodactyl conta com um tema totalmente intuitivo e fácil de manusear. Além de vários
+            diferenciais, pensando em facilitar cada vez mais a vida dos donos de servidores.
           </p>
         </div>
       </section>

@@ -188,19 +188,21 @@
   width: 125px;
   height: 115px;
 
-  margin: 15px 30px;
+  margin: 20px 30px;
 
+  padding: 0px 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  font-size: 1.4rem;
+  font-size: 1.3rem;
 
   transition: all 200ms ease-in-out;
 }
 
 .benefits button:hover {
+  cursor: pointer;
   transform: scale(1.05);
   background-color: var(--orange-primary) !important;
   color: #fff !important;
@@ -209,6 +211,12 @@
 .benefitSelected {
   background-color: var(--orange-primary) !important;
   color: #fff !important;
+}
+
+.benefitSelected svg {
+  color: #fff;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.2)) drop-shadow(0 0 4px rgba(255, 255, 255, 0.2))
+    drop-shadow(0 0 6px rgba(255, 255, 255, 0.2));
 }
 
 .benefits button img {
@@ -235,8 +243,10 @@
   margin-left: 40px;
 }
 
-.benefitDetails img {
-  margin-top: -170px;
+.benefitDetails svg {
+  color: var(--orange-primary);
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.1)) drop-shadow(0 0 4px rgba(0, 0, 0, 0.1))
+    drop-shadow(0 0 6px rgba(0, 0, 0, 0.1));
 }
 
 .benefitDetails h4 {
@@ -296,8 +306,10 @@
 
 @media (max-width: 450px) {
   .benefits button {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
+
+    margin: 10px 20px;
 
     font-size: 1.2rem;
   }

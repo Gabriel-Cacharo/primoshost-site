@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { BiRightArrowAlt } from 'react-icons/bi';
 
 import styles from './styles.module.css';
+import Link from 'next/link';
 
 interface IMainProduct {
   title: string;
@@ -18,7 +19,7 @@ export function MainProduct({ description, link, price, title, imageUrl }: IMain
       <h5>{title}</h5>
 
       <div className={styles.mainProductInformations}>
-        <Image src={imageUrl} alt="Render" height={120} width={70} />
+        <Image src={imageUrl} alt="Render" width={260} height={140} />
         <p>{description}</p>
 
         <div>
@@ -28,9 +29,9 @@ export function MainProduct({ description, link, price, title, imageUrl }: IMain
           </p>
         </div>
 
-        <button>
+        <Link href={link}>
           Conhecer <BiRightArrowAlt />
-        </button>
+        </Link>
       </div>
     </div>
   );

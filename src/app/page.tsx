@@ -1,26 +1,56 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { FiArrowDown } from 'react-icons/fi';
+import { BiSupport } from 'react-icons/bi';
+import { PiPlugsConnectedDuotone } from 'react-icons/pi';
+import { RiMoneyDollarCircleLine } from 'react-icons/ri';
+import { TbCloudDataConnection } from 'react-icons/tb';
+import { AiOutlineWifi } from 'react-icons/ai';
+import { MdShield } from 'react-icons/md';
 
 import { SectionTitle } from '@/components/SectionTitle/SectionTitle';
 import { MainProduct } from '@/components/MainProduct/MainProduct';
 import { Header } from '@/components/Header/Header';
 import { Footer } from '@/components/Footer/Footer';
+import { PromotionHeader } from '@/components/PromotionHeader/PromotionHeader';
 
 import RenderPersonWithCrate from '../../public/images/renderPersonWithCrate.png';
 import Render from '../../public/images/render.svg';
 import ServerRender from '../../public/images/serverRender.svg';
 
+import { benefitsArray } from './benefits';
+
 import styles from './page.module.css';
+
+interface IBenefitSelected {
+  label: string;
+  text: string;
+}
 
 export default function Home() {
   const [openFrequentlyAskedQuestion, setOpenFrequentlyAskedQuestion] = useState<number | null>(null);
+  const [benefitSelected, setBenefitSelected] = useState<IBenefitSelected | null>(benefitsArray[0]);
+
+  useEffect(() => {
+    let timeout = setTimeout(() => {
+      const newValue = benefitsArray.findIndex((item) => item.label === benefitSelected?.label) + 1;
+
+      if (newValue !== -1 && newValue < benefitsArray.length) {
+        setBenefitSelected(benefitsArray[newValue]);
+      } else {
+        setBenefitSelected(benefitsArray[0]);
+      }
+    }, 1000 * 10);
+
+    return () => clearTimeout(timeout);
+  }, [benefitSelected]);
 
   return (
     <div className="page">
+      {/* <PromotionHeader /> */}
       <Header />
 
       <section className={styles.welcomeSection}>
@@ -42,33 +72,49 @@ export default function Home() {
         />
 
         <div className={styles.ourBenefitsSectionContent}>
-          <div className={styles.benefits}>
-            <button data-aos="flip-left">
-              <Image src={Render} alt="Render" height={80} width={45} /> Suporte
-            </button>
-            <button data-aos="flip-left">
-              <Image src={Render} alt="Render" height={80} width={45} /> Suporte
-            </button>
-            <button data-aos="flip-left">
-              <Image src={Render} alt="Render" height={80} width={45} /> Suporte
-            </button>
-            <button data-aos="flip-left">
-              <Image src={Render} alt="Render" height={80} width={45} /> Suporte
-            </button>
-            <button data-aos="flip-left">
-              <Image src={Render} alt="Render" height={80} width={45} /> Suporte
-            </button>
-            <button className={styles.benefitSelected} data-aos="flip-left">
-              <Image src={Render} alt="Render" height={80} width={45} /> Suporte
-            </button>
+          <div className={styles.benefits} data-aos="zoom-in">
+            {benefitsArray.map((benefit, index) => (
+              <button
+                key={index}
+                onClick={() => setBenefitSelected(benefit)}
+                className={benefitSelected?.label === benefit.label ? styles.benefitSelected : ''}
+              >
+                {benefit.label.includes('24/7') ? (
+                  <BiSupport size={30} style={{ marginBottom: '10px' }} />
+                ) : benefit.label.includes('99.99%') ? (
+                  <PiPlugsConnectedDuotone size={30} style={{ marginBottom: '10px' }} />
+                ) : benefit.label.includes('Reembolso') ? (
+                  <RiMoneyDollarCircleLine size={30} style={{ marginBottom: '10px' }} />
+                ) : benefit.label.includes('AntiDDOS') ? (
+                  <TbCloudDataConnection size={30} style={{ marginBottom: '10px' }} />
+                ) : benefit.label.includes('Ilimitado') ? (
+                  <AiOutlineWifi size={30} style={{ marginBottom: '10px' }} />
+                ) : (
+                  <MdShield size={30} style={{ marginBottom: '10px' }} />
+                )}
+                {/* alt="Render"
+                  height={80}
+                  width={45} */}{' '}
+                {benefit.label}
+              </button>
+            ))}
           </div>
           <div className={styles.benefitDetails} data-aos="flip-right">
-            <Image src={Render} alt="Render" height={174} width={92} />
-            <h4>Suporte 24/7</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id varius libero. Aliquam consequat sagittis
-              quam, quis efficitur risus convallis ac. Nullam eu efficitur mauris, vel rhoncus erat
-            </p>
+            {benefitSelected?.label.includes('24/7') ? (
+              <BiSupport size={75} style={{ marginBottom: '10px' }} />
+            ) : benefitSelected?.label.includes('99.99%') ? (
+              <PiPlugsConnectedDuotone size={75} style={{ marginBottom: '10px' }} />
+            ) : benefitSelected?.label.includes('Reembolso') ? (
+              <RiMoneyDollarCircleLine size={75} style={{ marginBottom: '10px' }} />
+            ) : benefitSelected?.label.includes('AntiDDOS') ? (
+              <TbCloudDataConnection size={75} style={{ marginBottom: '10px' }} />
+            ) : benefitSelected?.label.includes('Ilimitado') ? (
+              <AiOutlineWifi size={75} style={{ marginBottom: '10px' }} />
+            ) : (
+              <MdShield size={75} style={{ marginBottom: '10px' }} />
+            )}
+            <h4>{benefitSelected?.label}</h4>
+            <p>{benefitSelected?.text}</p>
           </div>
         </div>
       </section>
@@ -79,10 +125,9 @@ export default function Home() {
         <div data-aos="fade-down">
           <h4>Deixe o seu projeto online agora mesmo</h4>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut magna in sem facilisis accumsan id quis
-            lacus. Suspendisse vel nunc mauris. In hac habitasse platea dictumst. Sed feugiat tellus sapien, consectetur
-            facilisis sem facilisis et. Sed ac placerat massa. Aenean facilisis mi eu magna scelerisque, vel varius
-            nulla sagittis.{' '}
+            Com uma infraestrutura de ponta, pensamos ao máximo em sua experiência como cliente. Além de contar com
+            processadores de ponta, antiDDos para deixar seu servidor online 100% do tempo, contamos com um suporte que
+            estará sempre com você, evitando dores de cabeça!
           </p>
         </div>
       </section>
@@ -94,9 +139,9 @@ export default function Home() {
           <MainProduct
             title="Minecraft"
             description="Hospedagem para o seu servidor de Minecraft ficar online 100% do tempo."
-            price="28,99"
+            price="19,99"
             link="/minecraft"
-            imageUrl="/images/render.svg"
+            imageUrl="/images/minecraftProducts/esmeralda.png"
           />
         </div>
       </section>
@@ -120,10 +165,8 @@ export default function Home() {
               Qual o prazo de ativação dos serviços? <FiArrowDown />
             </h6>
             <p style={openFrequentlyAskedQuestion === 1 ? { display: 'block' } : { display: 'none' }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut magna in sem facilisis accumsan id quis
-              lacus. Suspendisse vel nunc mauris. In hac habitasse platea dictumst. Sed feugiat tellus sapien,
-              consectetur facilisis sem facilisis et. Sed ac placerat massa. Aenean facilisis mi eu magna scelerisque,
-              vel varius nulla sagittis.{' '}
+              Se o pagamento for feito via pix, o prazo de ativação é de <b>até 2 horas</b>. Caso o pagamento seja feito
+              em outro método, pode levar <b>até 2 dias úteis</b>.
             </p>
           </div>
 
@@ -135,13 +178,11 @@ export default function Home() {
                   : () => setOpenFrequentlyAskedQuestion(2)
               }
             >
-              Qual o prazo de ativação dos serviços? <FiArrowDown />
+              Todos os planos possuem antiDDos? <FiArrowDown />
             </h6>
             <p style={openFrequentlyAskedQuestion === 2 ? { display: 'block' } : { display: 'none' }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut magna in sem facilisis accumsan id quis
-              lacus. Suspendisse vel nunc mauris. In hac habitasse platea dictumst. Sed feugiat tellus sapien,
-              consectetur facilisis sem facilisis et. Sed ac placerat massa. Aenean facilisis mi eu magna scelerisque,
-              vel varius nulla sagittis.{' '}
+              Sim! <b>Todos</b> os nossos planos contam com potentes antiDDos garantindo que sua aplicação fique sempre
+              online!
             </p>
           </div>
 
@@ -153,13 +194,12 @@ export default function Home() {
                   : () => setOpenFrequentlyAskedQuestion(3)
               }
             >
-              Qual o prazo de ativação dos serviços? <FiArrowDown />
+              Como posso entrar em contato com o suporte? <FiArrowDown />
             </h6>
             <p style={openFrequentlyAskedQuestion === 3 ? { display: 'block' } : { display: 'none' }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut magna in sem facilisis accumsan id quis
-              lacus. Suspendisse vel nunc mauris. In hac habitasse platea dictumst. Sed feugiat tellus sapien,
-              consectetur facilisis sem facilisis et. Sed ac placerat massa. Aenean facilisis mi eu magna scelerisque,
-              vel varius nulla sagittis.{' '}
+              Possuímos diversas formas de você entrar em contato conosco. Você pode abrir um ticket em nosso{' '}
+              <b>Discord</b>, abrir um ticket em nossa <b>Área do Cliente</b>, enviar-nos um email ou até mesmo entrar
+              em contato aqui no <b>Chat do Site</b> ( localizado na parte inferior direita ).
             </p>
           </div>
         </div>
