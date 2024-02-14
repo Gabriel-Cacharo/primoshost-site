@@ -21,12 +21,12 @@
   position: relative;
 }
 
-.header ul li:hover > div {
+/* .header ul li:hover > div {
   opacity: 1 !important;
-}
+} */
 
 .header ul li div {
-  display: flex;
+  display: none;
 
   position: absolute;
   top: 30px;
@@ -47,7 +47,7 @@
   text-align: left;
   gap: 15px 20px;
 
-  opacity: 0;
+  /* opacity: 0; */
 
   z-index: 2;
 
@@ -76,9 +76,18 @@
 .header ul li a {
   transition: all 200ms ease-in-out;
   cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
 .header ul li a:hover {
+  color: var(--purple-secondary);
+}
+
+.header ul li a.pageActive {
   color: var(--purple-secondary);
 }
 
@@ -93,6 +102,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  transition: all 200ms ease-in-out;
+}
+
+.clientButton:hover {
+  background-color: var(--purple-secondary);
 }
 
 .clientButton svg {

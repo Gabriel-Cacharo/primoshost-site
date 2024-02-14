@@ -5,11 +5,13 @@ import { useState, useEffect } from 'react';
 
 import { FiArrowDown } from 'react-icons/fi';
 import { BiSupport } from 'react-icons/bi';
-import { PiPlugsConnectedDuotone } from 'react-icons/pi';
+import { PiPlugsConnectedDuotone, PiComputerTower } from 'react-icons/pi';
 import { RiMoneyDollarCircleLine } from 'react-icons/ri';
 import { TbCloudDataConnection } from 'react-icons/tb';
 import { AiOutlineWifi } from 'react-icons/ai';
 import { MdShield } from 'react-icons/md';
+import { GiServerRack } from 'react-icons/gi';
+import { IoTicket } from 'react-icons/io5';
 
 import { SectionTitle } from '@/components/SectionTitle/SectionTitle';
 import { MainProduct } from '@/components/MainProduct/MainProduct';
@@ -20,6 +22,9 @@ import { PromotionHeader } from '@/components/PromotionHeader/PromotionHeader';
 import RenderPersonWithCrate from '../../public/images/renderPersonWithCrate.png';
 import Render from '../../public/images/render.svg';
 import ServerRender from '../../public/images/serverRender.svg';
+import Rocket3d from '../../public/images/rocket3dRender.png';
+import Host3dRender from '../../public/images/host3dRender.png';
+import Rocket3d2 from '../../public/images/rocket23dRender.png';
 
 import { benefitsArray } from './benefits';
 
@@ -61,7 +66,7 @@ export default function Home() {
         </div>
 
         <div className={styles.renderRight} data-aos="zoom-in-left">
-          <Image src={RenderPersonWithCrate} alt="Minecraft figure with chest" fill />
+          <Image src={Rocket3d} alt="Rocket Render" fill />
         </div>
       </section>
 
@@ -120,7 +125,7 @@ export default function Home() {
       </section>
 
       <section className={styles.putYourProjectOnline}>
-        <Image src={ServerRender} alt="Server Image" width={255} height={178} />
+        <Image src={ServerRender} alt="Server Image" width={256} height={256} data-aos="zoom-in" />
 
         <div data-aos="fade-down">
           <h4>Deixe o seu projeto online agora mesmo</h4>
@@ -137,18 +142,34 @@ export default function Home() {
 
         <div className={styles.mainProductsContent}>
           <MainProduct
+            title="VPS Gaming"
+            description="Hospede seu servidor de FiveM ou seus projetos com segurança rapidez."
+            price="55,05"
+            link="/vpsGaming"
+            imageUrl="/images/host3dRender.png"
+          />
+
+          <MainProduct
             title="Minecraft"
             description="Hospedagem para o seu servidor de Minecraft ficar online 100% do tempo."
             price="19,99"
             link="/minecraft"
             imageUrl="/images/minecraftProducts/esmeralda.png"
           />
+
+          <MainProduct
+            title="Palworld"
+            description="Tenha um servidor de Palworld online 24h para se divertir com seus amigos."
+            price="91,45"
+            link="/palworld"
+            imageUrl="/images/palworldProducts/palworldHome.png"
+          />
         </div>
       </section>
 
       <section className={styles.frequentlyAskedQuestionsSection}>
         <div className={styles.frequentlyAskedQuestionImageLeft} data-aos="zoom-in-right">
-          <Image src={Render} alt="Render" fill />
+          <Image src={Rocket3d2} alt="Host Render" fill />
         </div>
 
         <div className={styles.frequentlyAskedQuestionsContent}>
@@ -165,8 +186,8 @@ export default function Home() {
               Qual o prazo de ativação dos serviços? <FiArrowDown />
             </h6>
             <p style={openFrequentlyAskedQuestion === 1 ? { display: 'block' } : { display: 'none' }}>
-              Se o pagamento for feito via pix, o prazo de ativação é de <b>até 2 horas</b>. Caso o pagamento seja feito
-              em outro método, pode levar <b>até 2 dias úteis</b>.
+              Normalmente o plano é ativado imediatamente, porém pode acontecer de levar até 2 dias úteis dependendo do
+              método de pagamento.
             </p>
           </div>
 
@@ -178,10 +199,10 @@ export default function Home() {
                   : () => setOpenFrequentlyAskedQuestion(2)
               }
             >
-              Todos os planos possuem antiDDos? <FiArrowDown />
+              Todos os planos possuem AntiDDos? <FiArrowDown />
             </h6>
             <p style={openFrequentlyAskedQuestion === 2 ? { display: 'block' } : { display: 'none' }}>
-              Sim! <b>Todos</b> os nossos planos contam com potentes antiDDos garantindo que sua aplicação fique sempre
+              Sim! <b>Todos</b> os nossos planos contam com potentes AntiDDoS garantindo que sua aplicação fique sempre
               online!
             </p>
           </div>
@@ -197,9 +218,25 @@ export default function Home() {
               Como posso entrar em contato com o suporte? <FiArrowDown />
             </h6>
             <p style={openFrequentlyAskedQuestion === 3 ? { display: 'block' } : { display: 'none' }}>
-              Possuímos diversas formas de você entrar em contato conosco. Você pode abrir um ticket em nosso{' '}
-              <b>Discord</b>, abrir um ticket em nossa <b>Área do Cliente</b>, enviar-nos um email ou até mesmo entrar
-              em contato aqui no <b>Chat do Site</b> ( localizado na parte inferior direita ).
+              Possuímos diversas formas de você entrar em contato conosco. Sendo abrindo um ticket em nosso{' '}
+              <b>Discord</b> ou em nossa <b>Área do Cliente</b>, enviando-nos um email ou até mesmo entrando em contato
+              aqui no <b>Chat do Site</b> ( localizado na parte inferior direita ).
+            </p>
+          </div>
+
+          <div data-aos="zoom-in">
+            <h6
+              onClick={
+                openFrequentlyAskedQuestion === 4
+                  ? () => setOpenFrequentlyAskedQuestion(null)
+                  : () => setOpenFrequentlyAskedQuestion(4)
+              }
+            >
+              A empresa garante o reembolso? <FiArrowDown />
+            </h6>
+            <p style={openFrequentlyAskedQuestion === 4 ? { display: 'block' } : { display: 'none' }}>
+              Nós garantimos o reembolso <b>TOTAL</b> do valor do produto dentro de 7 dias corridos, como prescrito no
+              artigo 49 do Código de Defesa do Consumidor.
             </p>
           </div>
         </div>

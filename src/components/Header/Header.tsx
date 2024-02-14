@@ -1,17 +1,42 @@
-import { useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 import { BsPersonFill } from 'react-icons/bs';
 import { HiOutlineStatusOnline } from 'react-icons/hi';
 import { BiSolidBookBookmark, BiSolidBook } from 'react-icons/bi';
+import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from 'react-icons/md';
+import { TbBrandMinecraft } from 'react-icons/tb';
+import { GiDinosaurRex } from 'react-icons/gi';
 
 import LogoWithSlogan from '../../../public/images/logoWithSlogan.png';
 
 import styles from './styles.module.css';
 
 export function Header() {
+  const pathname = usePathname();
+
   const [divIsOpened, setDivIsOpened] = useState(false);
+  const [divGameIsOpened, setDivGameIsOpened] = useState(false);
+
+  // useEffect(() => {
+  //   const handleMouseOver = () => setDivIsOpened(true);
+  //   const handleMouseLeave = () => setDivIsOpened(false);
+
+  //   document.querySelector('#moreButton')?.addEventListener('mouseover', () => handleMouseOver);
+  //   document.querySelector('#moreModal')?.addEventListener('mouseover', () => handleMouseOver);
+
+  //   document.querySelector('#moreButton')?.addEventListener('mouseleave', () => handleMouseLeave);
+  //   document.querySelector('#moreModal')?.addEventListener('mouseleave', () => handleMouseLeave);
+
+  //   return () => {
+  //     document.querySelector('#moreButton')?.addEventListener('mouseover', () => handleMouseOver);
+  //     document.querySelector('#moreModal')?.addEventListener('mouseover', () => handleMouseOver);
+  //     document.querySelector('#moreButton')?.addEventListener('mouseleave', () => handleMouseLeave);
+  //     document.querySelector('#moreModal')?.addEventListener('mouseleave', () => handleMouseLeave);
+  //   };
+  // }, []);
 
   return (
     <header className={styles.header}>
@@ -21,19 +46,35 @@ export function Header() {
 
       <ul>
         <li>
-          <Link href="/">Home</Link>
+          <Link href="/" className={pathname === '/' ? styles.pageActive : ''}>
+            Início
+          </Link>
         </li>{' '}
         <li>
-          <Link href="/minecraft">Minecraft</Link>
-        </li>{' '}
-        <li>
-          <a href="" style={{ color: '#9e9e9e' }}>
-            Servidores VPS
+          <a id="gameButton" onClick={() => setDivGameIsOpened(!divGameIsOpened)}>
+            Jogos {divGameIsOpened ? <MdOutlineArrowDropUp /> : <MdOutlineArrowDropDown />}
           </a>
+          <div id="gameModal" style={divGameIsOpened ? { display: 'flex' } : { display: 'none' }}>
+            <Link href="/minecraft" className={pathname === '/minecraft/' ? styles.pageActive : ''}>
+              <TbBrandMinecraft /> Minecraft
+            </Link>
+
+            <Link href="/palworld" className={pathname === '/palworld/' ? styles.pageActive : ''}>
+              <GiDinosaurRex /> Palworld
+            </Link>
+          </div>
         </li>
         <li>
-          <a onClick={() => setDivIsOpened(!divIsOpened)}>Mais</a>
-          <div style={divIsOpened ? { opacity: '1' } : { opacity: '0' }}>
+          <Link href="/vpsGaming" className={pathname === '/vpsGaming/' ? styles.pageActive : ''}>
+            VPS Gaming
+          </Link>
+        </li>
+        <li>
+          <a id="moreButton" onClick={() => setDivIsOpened(!divIsOpened)}>
+            Mais
+            {divIsOpened ? <MdOutlineArrowDropUp /> : <MdOutlineArrowDropDown />}
+          </a>
+          <div id="moreModal" style={divIsOpened ? { display: 'flex' } : { display: 'none' }}>
             <a href="https://stats.uptimerobot.com/rrvlQFwnL5" target="_blank">
               <HiOutlineStatusOnline /> Status da Rede
             </a>

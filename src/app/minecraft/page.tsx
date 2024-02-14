@@ -4,12 +4,16 @@ import { useState } from 'react';
 import Image from 'next/image';
 
 import { BiRightArrowAlt, BiSupport } from 'react-icons/bi';
-import { BsCartCheck } from 'react-icons/bs';
-import { PiPlugsConnectedBold } from 'react-icons/pi';
+import { BsCartCheck, BsRocketTakeoffFill } from 'react-icons/bs';
+import { PiPlugsConnectedBold, PiUserCirclePlusFill } from 'react-icons/pi';
 import { AiOutlineWifi } from 'react-icons/ai';
+import { HiCursorClick } from 'react-icons/hi';
+import { MdSdStorage, MdArrowCircleRight } from 'react-icons/md';
+import { FaLongArrowAltRight } from 'react-icons/fa';
 
 import { Header } from '@/components/Header/Header';
 import { Footer } from '@/components/Footer/Footer';
+// import { PromotionHeader } from '@/components/PromotionHeader/PromotionHeader';
 
 import Brazil from '../../../public/images/brazil.png';
 import Pedra from '../../../public/images/minecraftProducts/pedra.png';
@@ -19,8 +23,11 @@ import Ouro from '../../../public/images/minecraftProducts/ouro.png';
 import Diamante from '../../../public/images/minecraftProducts/diamante.png';
 import Esmeralda from '../../../public/images/minecraftProducts/esmeralda.png';
 import PteroImage from '../../../public/images/pterodactylImage.png';
+import CoinImage from '../../../public/images/3dCoin.png';
+import RenderMinecraftProductsPage from '../../../public/images/renderMinecraftProductsPage.png';
 
 import styles from './styles.module.css';
+
 import { minecraftBrazilProducts } from '../products';
 
 export default function Minecraft() {
@@ -28,11 +35,34 @@ export default function Minecraft() {
 
   return (
     <div className={styles.minecraftProductsPage}>
+      {/* <PromotionHeader /> */}
       <Header />
 
       <header className={styles.minecraftProductsPageHeader}>
-        <div data-aos="zoom-in">
+        <div data-aos="zoom-in" className={styles.minecraftProductsPageHeaderText}>
           <h2>Hospedagem Minecraft</h2>
+
+          <ul>
+            <li>
+              <FaLongArrowAltRight /> Processadores de ponta
+            </li>
+            <li>
+              <FaLongArrowAltRight /> Disco NVME
+            </li>
+            <li>
+              <FaLongArrowAltRight /> Suporte especializado 24/7
+            </li>
+            <li>
+              <FaLongArrowAltRight /> AntiDDOS Gamer
+            </li>
+            <li>
+              <FaLongArrowAltRight /> Ping Brasileiro
+            </li>
+          </ul>
+        </div>
+
+        <div className={styles.minecraftProductPageRender} data-aos="zoom-in-left">
+          <Image src={RenderMinecraftProductsPage} fill alt="Render Minecraft" />
         </div>
       </header>
 
@@ -106,6 +136,7 @@ export default function Minecraft() {
               alt="Pedra"
               width={260}
               height={140}
+              className={styles.productImage}
             />
             <h5>{product.name}</h5>
 
@@ -181,6 +212,41 @@ export default function Minecraft() {
             Nosso painel pterodactyl conta com um tema totalmente intuitivo e fácil de manusear. Além de vários
             diferenciais, pensando em facilitar cada vez mais a vida dos donos de servidores.
           </p>
+
+          <ul>
+            <li>
+              <HiCursorClick />
+              Mude de versão em apenas um clique
+            </li>
+            <li>
+              <MdSdStorage />
+              Faça backups do seu servidor em 1 minuto
+            </li>
+            <li>
+              <PiUserCirclePlusFill />
+              Adicione subusuários ao painel de maneira simples
+            </li>
+            <li>
+              <BsRocketTakeoffFill />
+              Faça tudo de uma maneira simples e em poucos cliques!
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section className={styles.guaranteedRefundSection}>
+        <div className={styles.guaranteedRefundContainer}>
+          <Image src={CoinImage} alt="Coin Image" width={250} height={250} data-aos="zoom-in" />
+
+          <div data-aos="fade-down">
+            <h5>GARANTIA DE REEMBOLSO</h5>
+            <p>
+              Nosso compromisso é assegurar que cumprimos integralmente nossas promessas. Se, porventura, não
+              conseguirmos atender às suas expectativas, tenha a certeza de que sua proteção é nossa prioridade
+              absoluta. Aqui na PrimosHost o seu reembolso é garantido, proporcionando a você a garantia de uma
+              experiência livre de qualquer risco.
+            </p>
+          </div>
         </div>
       </section>
 

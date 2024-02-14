@@ -1,0 +1,873 @@
+.minecraftProductsPage {
+  min-height: 100vh;
+}
+
+.minecraftProductsPageHeader {
+  background-image: url('/images/productWave.svg');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 100%;
+
+  background-color: var(--purple-secondary);
+
+  height: 600px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+}
+
+.minecraftProductsPageHeader .minecraftProductsPageHeaderText {
+  padding: 30px 50px;
+
+  border-radius: 12px;
+
+  position: relative;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.minecraftProductsPageHeader h2 {
+  font-size: 2.87rem;
+  text-transform: uppercase;
+
+  color: var(--purple-primary);
+  border-bottom: 2px solid var(--orange-primary);
+
+  position: relative;
+  z-index: 10;
+}
+
+.minecraftProductsPageHeader h2::after {
+  content: 'Hospedagem Palworld';
+
+  color: var(--white-secondary);
+  position: absolute;
+  bottom: 0;
+  right: 3px;
+  width: 100%;
+  z-index: 0;
+}
+
+.minecraftProductsPageHeader ul {
+  list-style: none;
+
+  color: var(--white-secondary);
+
+  margin-top: 20px;
+}
+
+.minecraftProductsPageHeader ul li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+
+  margin: 10px 0px;
+
+  font-size: 1.1rem;
+}
+
+.minecraftProductsPageHeader ul li svg {
+  background-color: var(--purple-primary);
+  padding: 7px;
+  font-size: 1.7rem;
+  border-radius: 6px;
+}
+
+.minecraftProductPageRender {
+  align-self: center;
+  width: 580px;
+  height: 450px;
+
+  position: relative;
+}
+
+@media (max-width: 1200px) {
+  .minecraftProductPageRender {
+    width: 450px;
+    height: 360px;
+  }
+
+  .minecraftProductsPageHeader h2 {
+    font-size: 2.3rem;
+  }
+
+  .minecraftProductsPageHeader h2::after {
+    font-size: 2.3rem;
+  }
+
+  .minecraftProductsPageHeader ul li {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .minecraftProductsPageHeader {
+    background-size: 150%;
+  }
+}
+
+@media (max-width: 1050px) {
+  .minecraftProductPageRender {
+    width: 400px;
+    height: 340px;
+  }
+
+  .minecraftProductsPageHeader h2 {
+    font-size: 2rem;
+  }
+
+  .minecraftProductsPageHeader h2::after {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .minecraftProductsPageHeader {
+    flex-direction: column;
+  }
+
+  .minecraftProductPageRender {
+    align-self: center;
+  }
+
+  .minecraftProductsPageHeader {
+    height: 780px;
+    padding-top: 50px;
+  }
+
+  .minecraftProductsPageHeader h2 {
+    font-size: 2.4rem;
+  }
+
+  .minecraftProductsPageHeader h2::after {
+    font-size: 2.4rem;
+  }
+
+  .minecraftProductsPageHeader .minecraftProductsPageHeaderText {
+    align-items: center;
+  }
+}
+
+@media (max-width: 830px) {
+  .minecraftProductsPageHeader {
+    background-size: 200%;
+  }
+}
+
+@media (max-width: 650px) {
+  .minecraftProductsPageHeader {
+    background-size: 280%;
+
+    text-align: center;
+  }
+
+  .minecraftProductsPageHeader div {
+    margin: 0px 10px;
+    padding: 30px 30px;
+  }
+
+  .minecraftProductPageRender {
+    width: 310px;
+    height: 270px;
+  }
+}
+
+@media (max-width: 500px) {
+  .minecraftProductsPageHeader {
+    background-size: 300%;
+  }
+}
+
+@media (max-width: 400px) {
+  .minecraftProductsPageHeader .minecraftProductsPageHeaderText {
+    padding: 30px 25px;
+  }
+}
+
+/* Locale Container */
+.localeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px 0px;
+  width: 100%;
+}
+
+.localeContainer h4 {
+  border-top: 2px solid var(--orange-primary);
+
+  text-transform: uppercase;
+
+  font-size: 2rem;
+}
+
+.localeContainer p {
+  font-weight: 600;
+  filter: opacity(0.7);
+  font-size: 0.9rem;
+}
+
+.localeContainer button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  border: 1px solid var(--orange-primary);
+  border-radius: 8px;
+
+  margin-top: 15px;
+  padding: 10px 20px;
+
+  transition: all 200ms ease-in-out;
+}
+
+.localeContainer button:hover {
+  transform: scale(1.03);
+  cursor: pointer;
+}
+
+.localeContainer button div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.localeContainer button div h6 {
+  color: var(--orange-primary);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.localeContainer button div p {
+  font-size: 0.7rem;
+  color: var(--orange-primary);
+}
+
+@media (max-width: 370px) {
+  .localeContainer p {
+    text-align: center;
+  }
+}
+
+/* Plan Container */
+.planContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px 0px;
+  width: 100%;
+}
+
+.planContainer h4 {
+  border-top: 2px solid var(--orange-primary);
+
+  text-transform: uppercase;
+
+  font-size: 2rem;
+}
+
+.planContainer p {
+  font-weight: 600;
+  filter: opacity(0.7);
+  font-size: 0.9rem;
+}
+
+.planContainer button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--orange-primary);
+  border-radius: 8px;
+
+  margin-top: 15px;
+  padding: 5px 40px;
+
+  color: var(--orange-primary);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  transition: all 200ms ease-in-out;
+}
+
+.planContainer button:hover {
+  transform: scale(1.03);
+  cursor: pointer;
+}
+
+/* How Do You Want to Pay */
+.howDoYouWantToPayContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px 0px;
+  padding: 0px 10px;
+  width: 100%;
+}
+
+.howDoYouWantToPayContainer h4 {
+  border-top: 2px solid var(--orange-primary);
+
+  text-transform: uppercase;
+
+  font-size: 2rem;
+}
+
+.howDoYouWantToPayContainer > p {
+  font-weight: 600;
+  filter: opacity(0.7);
+  font-size: 0.9rem;
+}
+
+.howDoYouWantToPayContainer div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.howDoYouWantToPayContainer button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  border: 1px solid #aaa;
+  border-radius: 8px;
+
+  margin-top: 15px;
+  height: 60px;
+  width: 250px;
+
+  color: #aaa;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  transition: all 200ms ease-in-out;
+}
+
+.howDoYouWantToPayContainer button.active {
+  border: 1px solid var(--orange-primary);
+  color: var(--orange-primary);
+}
+
+.howDoYouWantToPayContainer button.active p span {
+  background-color: var(--orange-primary);
+}
+
+.howDoYouWantToPayContainer button:hover {
+  transform: scale(1.03);
+  cursor: pointer;
+}
+
+.howDoYouWantToPayContainer button p {
+  font-size: 0.6rem;
+}
+
+.howDoYouWantToPayContainer button p span {
+  background-color: var(--orange-secondary);
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 12px;
+
+  font-size: 0.7rem;
+}
+
+@media (max-width: 600px) {
+  .howDoYouWantToPayContainer h4 {
+    text-align: center;
+  }
+
+  .howDoYouWantToPayContainer > p {
+    text-align: center;
+  }
+}
+
+/* Products Container */
+.productsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 80px;
+
+  margin: 80px 0px;
+}
+
+/* Product Container */
+.productContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  background-color: #eee;
+  border-radius: 12px;
+  height: 420px;
+  width: 280px;
+  padding: 10px;
+
+  position: relative;
+  transition: all 200ms ease-in-out;
+}
+
+.productContainer::after {
+  content: '';
+  height: 15%;
+  width: 100%;
+  background-color: rgba(247, 143, 30, 0.7);
+  border-bottom: 2px solid #f7ae2e;
+  border-radius: 0px 0px 50% 50%;
+
+  z-index: 1;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* .productContainer::before {
+  content: '';
+  height: 35px;
+  width: 35px;
+  background-color: var(--purple-primary);
+  border-radius: 0px 0px 8px 0px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+} */
+
+.productContainer:hover {
+  /* border: 1px solid var(--purple-secondary); */
+}
+
+.productContainer .productImage {
+  margin-top: -60px;
+  z-index: 10;
+  width: 100px;
+  height: 100px;
+}
+
+.productContainer h5 {
+  font-size: 1.8rem;
+}
+
+.productContainer ul {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.productContainer ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.priceContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.priceContainer p {
+  font-size: 0.9rem;
+  background-color: var(--orange-secondary);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 12px;
+  margin: 5px 0px;
+  text-decoration: line-through;
+}
+
+.priceContainer h6 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  font-size: 1.7rem;
+  color: var(--orange-primary);
+}
+
+.priceContainer h6 span {
+  font-size: 1.5rem !important;
+  align-self: flex-end;
+  color: var(--purple-primary);
+}
+
+.productContainer a {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  /* background-color: var(--purple-primary); */
+  border: 0;
+  border: 2px solid var(--orange-primary);
+  border-radius: 8px;
+  color: var(--orange-primary);
+
+  height: 40px;
+  font-weight: 600;
+  font-size: 1rem;
+
+  transition: all 200ms ease-in-out;
+}
+
+.productContainer a:hover {
+  transform: translateY(-0.2rem);
+  cursor: pointer;
+  background-color: var(--orange-primary);
+  color: #fff;
+}
+
+.productContainer a:hover svg {
+  fill: #fff;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3)) drop-shadow(0 0 4px rgba(255, 255, 255, 0.3))
+    drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
+}
+
+/* Benefits Container */
+.benefitsContainer {
+  width: 100%;
+  height: 280px;
+
+  background-image: linear-gradient(180deg, rgba(247, 143, 30, 0.4), rgba(247, 143, 30, 0.4)),
+    url('/images/palworldBanner.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  gap: 20px;
+
+  margin: 100px 0px;
+}
+
+.benefitsContainer div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 15px;
+
+  height: 250px;
+  width: 450px;
+  margin-top: -30px;
+  padding: 10px;
+
+  background-color: #eee;
+  border-radius: 12px;
+  border: 1px solid var(--orange-primary);
+}
+
+.benefitsContainer div h5 {
+  font-size: 1.4rem;
+}
+
+.benefitsContainer div p {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 1450px) {
+  .benefitsContainer div {
+    width: 390px;
+    height: 280px;
+  }
+}
+
+@media (max-width: 1250px) {
+  .benefitsContainer {
+    height: 330px;
+  }
+
+  .benefitsContainer div {
+    height: 320px;
+    width: 320px;
+  }
+}
+
+@media (max-width: 1020px) {
+  .benefitsContainer {
+    padding: 0px 10px;
+    flex-wrap: wrap;
+
+    height: 600px;
+  }
+
+  .benefitsContainer div {
+    height: 280px;
+    width: 380px;
+  }
+}
+
+@media (max-width: 800px) {
+  .benefitsContainer {
+    height: 900px;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 420px) {
+  .benefitsContainer div {
+    width: 300px;
+  }
+}
+
+/* Pterodactyl Panel Section */
+.pterodactylPanelSection {
+  height: 600px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 90%;
+  max-width: 1800px;
+  margin: 100px auto;
+}
+
+.pterodactylImageContainer {
+  position: relative;
+
+  width: 60%;
+  height: 100%;
+  object-fill: contain;
+}
+
+.pterodactylImageContainer img {
+  border-radius: 20px;
+}
+
+.pterodactylImageRender {
+  position: absolute;
+  bottom: 0px;
+  left: -170px;
+  height: 60%;
+  width: 600px;
+}
+
+.pterodactylPanelTexts {
+  width: 35%;
+}
+
+.pterodactylPanelTexts ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+.pterodactylPanelTexts ul li {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+
+  background-color: #eee;
+  border: 2px solid #d9d9d9;
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+}
+
+.pterodactylPanelTexts ul li svg {
+  margin-bottom: 5px;
+  background-color: var(--purple-secondary);
+  width: 35px;
+  height: 35px;
+  padding: 10px;
+  border-radius: 5px;
+  color: var(--white-secondary);
+
+  margin-bottom: 7px;
+}
+
+.pterodactylPanelTexts h5 {
+  font-size: 2.2rem;
+
+  position: relative;
+  z-index: 1;
+  color: #000;
+  text-align: center;
+}
+
+.pterodactylPanelTexts p {
+  filter: opacity(0.9);
+  margin-top: 10px;
+  text-align: center;
+}
+
+@media (max-width: 1300px) {
+  .pterodactylPanelSection {
+    flex-direction: column-reverse;
+    height: 1050px;
+  }
+
+  /* Image */
+  .pterodactylImageContainer {
+    width: 90%;
+  }
+
+  .pterodactylImageRender {
+    height: 300px;
+    width: 500px;
+    left: -140px;
+  }
+
+  /* Texts */
+  .pterodactylPanelTexts {
+    width: 90%;
+  }
+
+  /* List */
+  .pterodactylPanelTexts ul {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .pterodactylPanelTexts ul li {
+    /* width: 45%; */
+    width: 48.5%;
+    height: 120px;
+  }
+}
+
+@media (max-width: 920px) {
+  /* Image */
+  .pterodactylImageContainer {
+    min-width: 310px;
+    min-height: 310px;
+  }
+
+  /* List */
+  .pterodactylPanelTexts ul li {
+    width: 100%;
+    height: 140px;
+  }
+}
+
+@media (max-width: 800px) {
+  /* Image Render */
+  .pterodactylImageRender {
+    height: 230px;
+    left: -112px;
+    width: 400px;
+  }
+}
+
+@media (max-width: 650px) {
+  .pterodactylPanelSection {
+    height: 1100px;
+  }
+}
+
+@media (max-width: 400px) {
+  .pterodactylPanelSection {
+    height: 1200px;
+  }
+}
+
+/* Guaranteed Refund Section */
+.guaranteedRefundSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 100px;
+}
+
+.guaranteedRefundContainer {
+  background-color: var(--purple-primary);
+  border-radius: 12px;
+
+  width: 90%;
+  max-width: 1800px;
+  height: 300px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.guaranteedRefundContainer img {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 22px;
+  padding: 15px;
+}
+
+.guaranteedRefundContainer h5 {
+  color: var(--white-primary);
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.guaranteedRefundContainer > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  max-width: 60%;
+}
+
+.guaranteedRefundContainer > div p {
+  text-wrap: break-word;
+  text-align: center;
+  color: var(--white-secondary);
+  margin-top: 20px;
+}
+
+@media (max-width: 850px) {
+  .guaranteedRefundContainer > div {
+    max-width: 90%;
+  }
+
+  .guaranteedRefundContainer {
+    flex-direction: column;
+    height: 550px;
+  }
+}
+
+@media (max-width: 520px) {
+  .guaranteedRefundContainer {
+    height: 650px;
+  }
+}

@@ -8,6 +8,7 @@ import { BiLogoDiscordAlt } from 'react-icons/bi';
 import LogoWithSlogan from '../../../public/images/logoWithSloganVertical.png';
 
 import styles from './styles.module.css';
+import Link from 'next/link';
 
 export function Footer() {
   return (
@@ -18,8 +19,15 @@ export function Footer() {
         <div>
           <h6>Nossos Serviços</h6>
           <ul>
-            <li>Minecraft</li>
-            {/* <li>VPS</li> */}
+            <li>
+              <Link href="/vpsGaming">VPS Gaming</Link>
+            </li>
+            <li>
+              <Link href="/minecraft">Minecraft</Link>
+            </li>
+            <li>
+              <Link href="/palworld">Palworld</Link>
+            </li>
           </ul>
         </div>
 
@@ -81,7 +89,7 @@ export function Footer() {
         </div>
       </div>
       <div className={styles.secondFooterContent}>
-        <p>Todos os direitos reservados PrimosHost © 2023</p>
+        <p>Todos os direitos reservados PrimosHost © 2024</p>
         <p>Feito com 🤍 por PrimosHost</p>
       </div>
     </footer>

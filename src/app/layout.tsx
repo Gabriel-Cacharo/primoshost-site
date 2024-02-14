@@ -47,6 +47,31 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           gtag('config', 'G-H4ZP0SJ6F5');`}
       </Script>
 
+      <Script
+        async
+        strategy="lazyOnload"
+        id="gtag3"
+        src="https://www.googletagmanager.com/gtag/js?id=G-H4ZP0SJ6F5"
+      ></Script>
+
+      <Script id="gtag4" strategy="lazyOnload">
+        {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-H4ZP0SJ6F5');`}
+      </Script>
+
+      <Script id="gtag5" strategy="lazyOnload" src="https://www.googletagmanager.com/gtag/js?id=G-H4ZP0SJ6F5" async />
+
+      <Script id="gtag6" strategy="lazyOnload">
+        {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-H4ZP0SJ6F5');`}
+      </Script>
+
       <Script id="inline-script" strategy="lazyOnload">
         {`var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
         (function(){

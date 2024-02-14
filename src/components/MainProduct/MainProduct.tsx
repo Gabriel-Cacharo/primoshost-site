@@ -19,8 +19,14 @@ export function MainProduct({ description, link, price, title, imageUrl }: IMain
       <h5>{title}</h5>
 
       <div className={styles.mainProductInformations}>
-        <Image src={imageUrl} alt="Render" width={260} height={140} />
-        <p>{description}</p>
+        {imageUrl.includes('palworld') ? (
+          <Image src={imageUrl} alt="Render" width={140} height={140} />
+        ) : imageUrl.includes('esmeralda') ? (
+          <Image src={imageUrl} alt="Render" width={260} height={140} />
+        ) : (
+          <Image src={imageUrl} alt="Render" width={200} height={200} style={{ marginTop: '-80px' }} />
+        )}
+        <p style={imageUrl.includes('host') ? { marginTop: '-20px' } : {}}>{description}</p>
 
         <div>
           <p>A partir de </p>
